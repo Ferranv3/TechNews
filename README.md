@@ -1,7 +1,7 @@
 # TechNews
 
 One web to follow the most important tech news.
-
+See deployed at [TechNews](https://technews-ferran.vercel.app/)
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
