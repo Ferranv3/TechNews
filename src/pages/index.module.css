@@ -1,0 +1,17 @@
+.title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.searchButtonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5vw;
+}
+
+.textArticle {
+    text-decoration: none;
+    color: white;
+}

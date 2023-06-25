@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 
 async function scrapeElChapuzas() {
     const url = 'https://elchapuzasinformatico.com/';
+    const source = 'elchapuzas';
     const response = await axios(url);
     const html = response.data;
     const $ = cheerio.load(html);
@@ -17,7 +18,7 @@ async function scrapeElChapuzas() {
         //const img = $(element).find('a.rocket-lazyload img').attr('src');
         //const style = 'background-image: url("https://elchapuzasinformatico.com/wp-content/uploads/2023/06/OceanGate-Titan-controlado-por-Logitech-F710-378x150.jpg")';
         
-        scrapedData.push({ title, description, href });
+        scrapedData.push({ title, description, href, source });
     });
 
     return scrapedData;
