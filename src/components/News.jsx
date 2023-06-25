@@ -2,6 +2,9 @@ import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import styles from './news.module.css';
 
+const uriAPI = 'https://technews-api-ferran.vercel.app/api/';
+//const uriAPI = 'http://localhost:8080/api/';
+
 const News = () => {
     const [source, setSource] = useState('elchapuzas');
     const [news, setNews] = useState([]);
@@ -15,7 +18,7 @@ const News = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://technews-api-ferran.vercel.app/api/${source}`);
+                const response = await axios.get(uriAPI + source);
                 setNews(response.data);
             } catch (error) {
                 console.error("Error al recuperar las noticias: ", error);
