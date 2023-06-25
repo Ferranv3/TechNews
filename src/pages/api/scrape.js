@@ -33,8 +33,20 @@ export default async function (req, res) {
         scrapedData = await scrapeElChapuzas();
         break;
     }
-    res.status(200).json(scrapedData);
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(scrapedData)
+    };
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los datos.' });
+    return {
+      statusCode: 500,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ error: 'Error al obtener los datos.' })
+    };
   }
 };

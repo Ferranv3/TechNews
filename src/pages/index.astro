@@ -1,19 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import scrapeWebsite from '../../api/scrape.js'
 import styles from './index.module.css';
-
-let news = await scrapeWebsite('elchapuzas');
+import News from '../components/News.jsx';
 ---
 
 <Layout title="TechNews">
 	<main>
 		<h1 class={styles.title}>Welcome to TechNews</h1>
-    <section class={styles.searchButtonsContainer}>
-      <button>ElChapuzasInformatico</button>
-      <button>ProfesionalReview</button>
-      <button>HardZone</button>
-    </section>
+    	<News client:load/>
+		{/*
+		<section class={styles.searchButtonsContainer}>
+			<button>ElChapuzasInformatico</button>
+			<button>ProfesionalReview</button>
+			<button>HardZone</button>
+		</section>
 		<ul>
 			{news.map(item => (
 			  <li >
@@ -23,6 +23,6 @@ let news = await scrapeWebsite('elchapuzas');
 				  </a>
 			  </li>
 			))}
-		  </ul>
+		  </ul> */}
 	</main>
 </Layout>
