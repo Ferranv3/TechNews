@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import scrapeWebsite from '../../api/scrape.js'
 import styles from './index.module.css';
+import News from '../components/News.jsx';
 
 let news = await scrapeWebsite('elchapuzas');
 ---
@@ -9,6 +10,7 @@ let news = await scrapeWebsite('elchapuzas');
 <Layout title="TechNews">
 	<main>
 		<h1 class={styles.title}>Welcome to TechNews</h1>
+    {/*<News client:load news={news}/>*/}
     <section class={styles.searchButtonsContainer}>
       <button>ElChapuzasInformatico</button>
       <button>ProfesionalReview</button>
