@@ -1,9 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import scrapeWebsite from '../../api/scrape.js'
+
+let news = await scrapeWebsite();
 ---
 
 <Layout title="TechNews">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Welcome to TechNews</h1>
+		<ul>
+			{news.map(item => (
+			  <li>
+				<a href={item.href} style={item.style}>
+				  <h2>{item.title}</h2>
+				  <p>{item.description}</p>
+				  </a>
+			  </li>
+			))}
+		  </ul>
 	</main>
 </Layout>
