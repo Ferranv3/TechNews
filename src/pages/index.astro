@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import scrapeWebsite from '../../api/scrape.js'
 
-let news = await scrapeWebsite();
+let news = await scrapeWebsite('elchapuzas');
 ---
 
 <Layout title="TechNews">
