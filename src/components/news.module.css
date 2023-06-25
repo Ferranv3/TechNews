@@ -1,0 +1,9 @@
+.searchButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.textArticle {
+    text-decoration: none;
+    color: white;
+}

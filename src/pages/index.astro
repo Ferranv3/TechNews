@@ -1,28 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import scrapeWebsite from '../../api/scrape.js'
 import styles from './index.module.css';
-
-let news = await scrapeWebsite('elchapuzas');
+import News from '../components/News.jsx';
 ---
 
 <Layout title="TechNews">
 	<main>
 		<h1 class={styles.title}>Welcome to TechNews</h1>
-    <section class={styles.searchButtonsContainer}>
-      <button>ElChapuzasInformatico</button>
-      <button>ProfesionalReview</button>
-      <button>HardZone</button>
-    </section>
-		<ul>
-			{news.map(item => (
-			  <li >
-          <a href={item.href} class={styles.textArticle}>
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-				  </a>
-			  </li>
-			))}
-		  </ul>
+    	<News client:load/>
 	</main>
 </Layout>
