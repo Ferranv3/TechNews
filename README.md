@@ -1,6 +1,7 @@
 # TechNews
 
-One web to follow the most important tech news.
+Built with Astro framework using HTML, CSS and React with hooks.
+One web to follow the most important tech news. Deployed at [TechNews](https://technews-ferran.vercel.app/)
 
 ## 🧞 Commands
 
