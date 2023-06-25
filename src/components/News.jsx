@@ -35,19 +35,25 @@ const News = () => {
 
     return (
         <>
-            <select value={source} onChange={handleSourceChange} className={styles.searchButtonsContainer}>
-                {sources.map(source => (
-                    <option key={source.value} value={source.value}>{source.label}</option>
-                ))}
-            </select>
-            <ul>
+            <div className={styles.searchButtonsContainer}>
+                <select value={source} onChange={handleSourceChange} className={styles.searchButtons}>
+                    {sources.map(source => (
+                        <option key={source.value} value={source.value}>{source.label}</option>
+                    ))}
+                </select>
+            </div>
+            
+            <div className={styles.articleGrid}>
                 {news?.map(item => (
-                    <a key={item.href} href={item.href} className={styles.textArticle}>
-                        <h2>{item.title}</h2>
-                        <p>{item.description}</p>
-                    </a>
+                    <div key={item.href} className={styles.article}>
+                        <a href={item.href} className={styles.textArticle}>
+                            <h2 className={styles.articleTitle}>{item.title}</h2>
+                            <p>{item.description}</p>
+                        </a>
+                    </div>
+                    
                 ))}
-            </ul>
+            </div>
         </>
     );
 }

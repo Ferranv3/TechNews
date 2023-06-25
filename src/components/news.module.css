@@ -3,7 +3,44 @@
     justify-content: center;
 }
 
+.searchButtons {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.articleGrid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 5vh;
+}
+
+.article {
+    height: inherit;
+    padding: 20px 10px;
+    overflow: auto;
+    width: 100%;
+    max-width: 600px;
+    flex: 1 0 calc(25% - 10px);
+    border: 1px solid white;
+    border-radius: 20px;
+    margin: 10px 10px;
+    transition: transform 0.3s;
+
+    @media (max-width: 600px) {
+        flex: 1 0 80%;
+    }
+}
+
+.article:hover {
+    transform: scale(1.05);
+}
+
 .textArticle {
     text-decoration: none;
     color: white;
+}
+
+.articleTitle {
+    margin-block-start: 0px; 
 }
