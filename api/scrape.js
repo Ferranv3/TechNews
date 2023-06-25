@@ -24,17 +24,15 @@ async function scrapeElChapuzas() {
     return scrapedData;
 }
 
-export default async function (req, res) {
-  const { source } = req.params;
+export default async function scrapeWebsite(source) {
   try {
-    let scrapedData = [];
     switch(source) {
       case 'elchapuzas':
-        scrapedData = await scrapeElChapuzas();
-        break;
+        const elChapuzasData = await scrapeElChapuzas();
+        return elChapuzasData;
     }
-    res.status(200).json(scrapedData);
+    
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los datos.' });
+    return [];
   }
 };
