@@ -15,6 +15,14 @@
   margin-top: 5vh;
 }
 
+.articleGrid .article:nth-child(even) {
+  background: linear-gradient(to right, #272fc0, #162253);
+}
+  
+.articleGrid .article:nth-child(odd) {
+  background: linear-gradient(to right, #6727c0, #240e48);
+}
+
 .article {
   height: inherit;
   padding: 20px 10px;
