@@ -108,4 +108,7 @@
 
 .img {
   width: -webkit-fill-available;
+  width: -moz-available;
+  object-fit: cover;
+  object-position: center;
 }
