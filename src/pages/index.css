@@ -1,3 +1,7 @@
 .paddingContent {
-    padding-top: 15vh;
+    padding-top: 17vh;
+
+    @media (max-width: 600px) {
+        padding-top: 18.3vh;
+    }
 }

@@ -14,7 +14,7 @@ const data = await response.json();
 <Layout title="TechNews">
 	<main class="paddingContent">
         <a href={data.uri} class={styles.subtitle}>
-            <h1>{data.title}</h1>
+            <h1 class={styles.h1}>{data.title}</h1>
         </a>
         <div class={styles.contentArticle}>
             {data.content.map((item, index) => {
