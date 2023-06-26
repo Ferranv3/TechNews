@@ -45,6 +45,10 @@
   transform: scale(1.05);
 }
 
+.centerScreen {
+  transform: scale(1.05);
+}
+
 .textArticle {
   text-decoration: none;
   color: white;

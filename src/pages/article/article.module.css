@@ -7,6 +7,12 @@
     color: blue;
 }
 
+.contentArticle {
+    @media (min-width: 600px) {
+        padding-top: 10px;
+    }
+}
+
 .img {
     display: block;
     margin: auto;
