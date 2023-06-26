@@ -1,0 +1,94 @@
+.searchButtonsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchButtons {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.articleGrid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 5vh;
+}
+
+.article {
+  height: inherit;
+  padding: 20px 10px;
+  overflow: auto;
+  width: 100%;
+  max-width: 600px;
+  flex: 1 0 calc(25% - 10px);
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: 10px 10px;
+  transition: transform 0.3s;
+
+  @media (max-width: 600px) {
+    flex: 1 0 80%;
+  }
+}
+
+.article:hover {
+  transform: scale(1.05);
+}
+
+.textArticle {
+  text-decoration: none;
+  color: white;
+}
+
+.articleTitle {
+  margin-block-start: 0px;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 50vw;
+  height: 25vh;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: white;
+  height: 100%;
+  width: 1.5vw;
+  display: inline-block;
+
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+
+  @media (max-width: 600px) {
+    width: 5vw;
+  }
+}
+
+.spinner .rect2 {
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  animation-delay: -1s;
+}
+
+.spinner .rect4 {
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  animation-delay: -0.8s;
+}
+
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}

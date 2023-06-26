@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
 import styles from './news.module.css';
 
@@ -8,6 +8,7 @@ const uriAPI = 'https://technews-api-ferran.vercel.app/api/';
 const News = () => {
     const [source, setSource] = useState('elchapuzas');
     const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const sources = [
         { value: 'elchapuzas', label: 'ElChapuzasInformatico' },
@@ -17,6 +18,7 @@ const News = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const response = await axios.get(uriAPI + source);
                 setNews(response.data);
@@ -24,6 +26,7 @@ const News = () => {
                 console.error("Error al recuperar las noticias: ", error);
                 setNews([]);
             }
+            setLoading(false);
         }
         fetchData();
     }, [source]);
@@ -43,17 +46,29 @@ const News = () => {
                 </select>
             </div>
             
-            <div className={styles.articleGrid}>
-                {news?.map(item => (
-                    <div key={item.href} className={styles.article}>
-                        <a href={item.href} className={styles.textArticle}>
-                            <h2 className={styles.articleTitle}>{item.title}</h2>
-                            <p>{item.description}</p>
-                        </a>
-                    </div>
-                    
-                ))}
-            </div>
+            {loading && 
+                <div class={styles.spinner}>
+                    <div class={styles.rect1}></div>
+                    <div class={styles.rect2}></div>
+                    <div class={styles.rect3}></div>
+                    <div class={styles.rect4}></div>
+                    <div class={styles.rect5}></div>
+                </div>
+            }
+            
+            {!loading &&
+                <div className={styles.articleGrid}>
+                    {news?.map(item => (
+                        <div key={item.href} className={styles.article}>
+                            <a href={item.href} className={styles.textArticle}>
+                                <h2 className={styles.articleTitle}>{item.title}</h2>
+                                <p>{item.description}</p>
+                            </a>
+                        </div>
+                        
+                    ))}
+                </div>
+            }
         </>
     );
 }
