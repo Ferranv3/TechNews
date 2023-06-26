@@ -3,7 +3,7 @@
     text-align: center;
     width: 100%;
     top: 0;
-    background-color: #2d2d2d;
+    background: linear-gradient(to top, #2d2d2d, #000000);
     text-decoration: none;
     z-index: 1;
     font-size: 2em;
