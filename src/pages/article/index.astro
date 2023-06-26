@@ -1,16 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import styles from './article.module.css';
+import '../index.css';
 
 const param = Astro.url.searchParams.get('id') || '';
 //const url = 'http://localhost:8080';
 const url = 'https://technews-api-ferran.vercel.app';
-const response = await fetch(`${url}/api/article?id=${param}`);
+let response = await fetch(`${url}/api/article?id=${param}`);
+response = await fetch(`${url}/api/article?id=${param}`);
 const data = await response.json();
 ---
 
 <Layout title="TechNews">
-	<main>
+	<main class="paddingContent">
         <a href={data.uri} class={styles.subtitle}>
             <h1>{data.title}</h1>
         </a>

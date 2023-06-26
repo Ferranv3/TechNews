@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import styles from './index.module.css';
 import News from '../components/news/News.jsx';
+import './index.css';
 ---
 
 <Layout title="TechNews">
-	<main>
+	<main class="paddingContent">
     	<News client:load/>
 	</main>
 </Layout>
