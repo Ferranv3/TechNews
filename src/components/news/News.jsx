@@ -6,14 +6,14 @@ const uriAPI = 'https://technews-api-ferran.vercel.app/api/';
 //const uriAPI = 'http://localhost:8080/api/';
 
 const News = () => {
-    const [source, setSource] = useState('elchapuzas');
+    const [source, setSource] = useState('hardzone');
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const sources = [
+        { value: 'hardzone', label: 'HardZone' },
         { value: 'elchapuzas', label: 'ElChapuzasInformatico' },
-        { value: 'profesionalreview', label: 'ProfesionalReview' },
-        { value: 'hardzone', label: 'HardZone' }
+        { value: 'profesionalreview', label: 'ProfesionalReview' }
     ];
 
     useEffect(() => {
