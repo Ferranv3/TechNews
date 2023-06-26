@@ -61,6 +61,9 @@ const News = () => {
                     {news?.map(item => (
                         <div key={item.href} className={styles.article}>
                             <a href={`/article?id=${item.href}`} className={styles.textArticle}>
+                                {item.img &&
+                                    <img src={item.img} className={styles.img}/>
+                                }
                                 <h2 className={styles.articleTitle}>{item.title}</h2>
                                 <p>{item.description}</p>
                             </a>

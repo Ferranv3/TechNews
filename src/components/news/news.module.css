@@ -100,3 +100,7 @@
     transform: scaleY(1);
   }
 }
+
+.img {
+  width: -webkit-fill-available;
+}

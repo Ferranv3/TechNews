@@ -20,7 +20,7 @@ const data = await response.json();
             let src = match ? match[1] : null;
             
             if (src) {
-                src = src.replace('//','https://');
+                src = src.replace('//elchapuzasinformatico.com','https://elchapuzasinformatico.com');
                 return <img src={src} class={styles.img}/>;
             } else {
                 return <p>{item}</p>;
