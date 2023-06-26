@@ -1,0 +1,8 @@
+.subtitle {
+    text-decoration: none;
+    color: white;
+}
+
+.subtitle:hover {
+    color: blue;
+}

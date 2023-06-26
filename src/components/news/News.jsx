@@ -60,7 +60,7 @@ const News = () => {
                 <div className={styles.articleGrid}>
                     {news?.map(item => (
                         <div key={item.href} className={styles.article}>
-                            <a href={item.href} className={styles.textArticle}>
+                            <a href={`/article?id=${item.href}`} className={styles.textArticle}>
                                 <h2 className={styles.articleTitle}>{item.title}</h2>
                                 <p>{item.description}</p>
                             </a>
