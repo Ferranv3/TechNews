@@ -21,7 +21,9 @@ const { title } = Astro.props;
 		<a href='/' class={styles.titleContainer}>
             <h1>TechNews</h1>
         </a>
-		<slot />
+		<div class={styles.contentContainer}>
+			<slot />
+		</div>
 	</body>
 </html>
 <style is:global>
@@ -44,8 +46,6 @@ const { title } = Astro.props;
 		color: #D1D1D1;
 	}
 	body {
-		width: 80%;
-		margin: auto;
 		padding-bottom: 3%;
 	}
 	code {
