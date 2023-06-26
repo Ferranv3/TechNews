@@ -14,8 +14,18 @@ const data = await response.json();
         <a href={data.uri} class={styles.subtitle}>
             <h1>{data.title}</h1>
         </a>
-        {data.content.map((item) => (
-            <p>{item}</p>
-        ))}
+        {data.content.map((item, index) => {
+            const imgSrcRegex = /<img.*?src=["'](.*?)["']/;
+            const match = item.match(imgSrcRegex);
+            let src = match ? match[1] : null;
+            
+            if (src) {
+                src = src.replace('//','https://');
+                return <img src={src} class={styles.img}/>;
+            } else {
+                return <p>{item}</p>;
+            }
+        })}
+        
 	</main>
 </Layout>
