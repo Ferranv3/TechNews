@@ -45,8 +45,8 @@
   transform: scale(1.05);
 }
 
-.centerScreen {
-  transform: scale(1.05);
+.articleCenterScreen {
+  transform: scale(1.10);
 }
 
 .textArticle {

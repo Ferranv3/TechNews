@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import styles from './news.module.css';
 
@@ -9,12 +9,36 @@ const News = () => {
     const [source, setSource] = useState('hardzone');
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(false);
+    const articleRefs = useRef([]);
 
     const sources = [
         { value: 'hardzone', label: 'HardZone' },
         { value: 'elchapuzas', label: 'ElChapuzasInformatico' },
         { value: 'profesionalreview', label: 'ProfesionalReview' }
     ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.innerWidth <= 600) {
+                articleRefs.current.forEach((ref, index) => {
+                    if (ref) {
+                        const articleTop = ref.getBoundingClientRect().top;
+                        const articleBottom = ref.getBoundingClientRect().bottom;
+                        const screenHeight = window.innerHeight;
+                        
+                        if (articleTop <= screenHeight / 2 && articleBottom > screenHeight / 2 - 100) {
+                            ref.classList.add(styles.articleCenterScreen);
+                        } else {
+                            ref.classList.remove(styles.articleCenterScreen);
+                        }
+                    }
+                });
+            }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,8 +82,8 @@ const News = () => {
             
             {!loading &&
                 <div className={styles.articleGrid}>
-                    {news?.map(item => (
-                        <div key={item.href} className={styles.article}>
+                    {news?.map((item, index) => (
+                        <div key={item.href} className={styles.article} ref={ref => articleRefs.current[index] = ref}>
                             <a href={`/article?id=${item.href}`} className={styles.textArticle}>
                                 {item.img &&
                                     <img src={item.img} className={styles.img}/>
