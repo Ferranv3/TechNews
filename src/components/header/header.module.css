@@ -1,0 +1,11 @@
+.titleContainer {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    background: linear-gradient(to top, #2d2d2d, #000000);
+    text-decoration: none;
+    z-index: 1;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
