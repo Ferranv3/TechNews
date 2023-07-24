@@ -13,7 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-top: 5vh;
+  margin-top: 20px;
 }
 
 .articleGrid .article:nth-child(even) {
@@ -56,6 +56,11 @@
 
 .articleTitle {
   margin-block-start: 0px;
+  font-size: 1.5em;
+	@media (max-width: 600px) {
+    font-size: 1.3em;
+  }
+  font-weight: 600;
 }
 
 .spinner {

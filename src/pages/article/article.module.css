@@ -8,7 +8,8 @@
 }
 
 .h1 {
-    margin-top: 0px;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .contentArticle {
@@ -22,5 +23,9 @@
     margin: auto;
     width: 100%;
     max-width: 900px;
-    padding: 50px 0;
+    padding-bottom: 20px;
+}
+
+.p {
+    margin-bottom: 20px;
 }
