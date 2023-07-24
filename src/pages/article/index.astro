@@ -13,11 +13,11 @@ const data = await response.json();
 
 <Layout title="TechNews">
 	<main class="paddingContent">
-        <a href={data.uri} class={styles.subtitle}>
-            <h1 class={styles.h1}>{data.title}</h1>
+        <a href={data.uri} class={styles.subtitle} aria-label="Original article">
+            <h2 class={styles.h2}>{data.title}</h2>
         </a>
         <div class={styles.contentArticle}>
-            {data.content.map((item, index) => {
+            {data.content.map((item: string) => {
                 const imgSrcRegex = /<img.*?src=["'](.*?)["']/;
                 const match = item.match(imgSrcRegex);
                 let src = match ? match[1] : null;
