@@ -14,13 +14,14 @@ const News = () => {
     const sources = [
         { value: 'hardzone', label: 'HardZone' },
         { value: 'elchapuzas', label: 'ElChapuzasInformatico' },
-        { value: 'profesionalreview', label: 'ProfesionalReview' }
+        { value: 'profesionalreview', label: 'ProfesionalReview' },
+        { value: 'xatakaia', label: 'XatakaIA' }
     ];
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.innerWidth <= 600) {
-                articleRefs.current.forEach((ref, index) => {
+                articleRefs.current.forEach((ref) => {
                     if (ref) {
                         const articleTop = ref.getBoundingClientRect().top;
                         const articleBottom = ref.getBoundingClientRect().bottom;
