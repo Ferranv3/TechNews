@@ -25,12 +25,31 @@ const { title } = Astro.props;
 		<div class={styles.contentContainer}>
 			<slot />
 		</div>
+		<button id="scrollToTop"></button>
 		<Footer />
 	</body>
 </html>
+<script>
+	window.addEventListener('scroll', showHideButton);
+
+	var button = document.getElementById('scrollToTop');
+
+	button.addEventListener('click', scrollToTop);
+
+	function showHideButton() {
+		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			button.style.display = "block";
+		} else {
+			button.style.display = "none";
+		}
+	}
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+</script>
 <style is:global>
 	/* Reset css */
-
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 	a, abbr, acronym, address, big, cite, code,
@@ -104,4 +123,32 @@ const { title } = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+
+	/* Scroll id styles */
+	#scrollToTop {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		display: none;
+		background-color: #333; /* Color oscuro del círculo */
+		color: #fff; /* Color blanco de la flecha */
+		border: none;
+		border-radius: 50%; /* Hace que el botón sea un círculo */
+		width: 50px; /* Tamaño del círculo */
+		height: 50px;
+		font-size: 24px; /* Tamaño de la flecha */
+		cursor: pointer;
+		text-align: center;
+		line-height: 50px; /* Alinea la flecha verticalmente en el centro del círculo */
+		transition: background-color 0.3s; /* Transición suave para el cambio de color */
+	}
+
+	#scrollToTop:hover {
+		background-color: #555; /* Color oscuro cuando se pasa el cursor sobre el botón */
+	}
+
+	#scrollToTop::before {
+		content: "⬆"; /* Carácter de flecha hacia arriba */
+	}
+
 </style>
