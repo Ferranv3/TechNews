@@ -6,16 +6,16 @@ const uriAPI = 'https://technews-api-ferran.vercel.app/api/';
 //const uriAPI = 'http://localhost:8080/api/';
 
 const News = () => {
-    const [source, setSource] = useState('hardzone');
+    const [source, setSource] = useState('xatakaia');
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(false);
     const articleRefs = useRef([]);
 
     const sources = [
-        { value: 'hardzone', label: 'HardZone' },
+        { value: 'xatakaia', label: 'XatakaIA' },
         { value: 'elchapuzas', label: 'ElChapuzasInformatico' },
         { value: 'profesionalreview', label: 'ProfesionalReview' },
-        { value: 'xatakaia', label: 'XatakaIA' }
+        { value: 'hardzone', label: 'HardZone' }
     ];
 
     useEffect(() => {
